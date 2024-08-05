@@ -6,6 +6,7 @@ package exceptions.complejo.controlador;
 
 import exceptions.complejo.modelo.Banco;
 import exceptions.complejo.vista.BancoVista;
+import java.util.ArrayList;
 
 /**
  *
@@ -32,4 +33,16 @@ public class BancoControlador {
         }
     }
     
+    public void cargarCuentas(){
+        negocio.cargarCuentasArchivo();
+    }
+    
+    public void listarCuentas(){
+        ArrayList<String> lista = negocio.listarCuentas();
+        frame.getTaCuentas().setText("");
+        
+        for (String cuenta : lista) {
+            frame.getTaCuentas().append(cuenta + "\n");
+        }        
+    }
 }
